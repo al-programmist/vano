@@ -1,0 +1,15 @@
+#!/bin/bash
+blocks=src/blocks
+
+echo "Создаем компонент: " $1
+echo "Создаем каталог $blocks"$1
+cd $blocks
+mkdir $1
+cd $1/
+
+echo "Создаем файл $1.scss"
+echo "Создаем файл $1.js"
+
+touch $1.scss $1.js $1.pug
+
+echo "Готово!"

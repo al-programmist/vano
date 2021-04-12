@@ -1,0 +1,122 @@
+// Адаптив выстраивается по принципу mobile-first
+@mixin set-viewports {
+	@each $key, $value in $breakpoints {
+		@if ($key == extra-small or $key == mobile or $key == smartphone) {
+			@media all and (min-width: $value) {
+				max-width: get-breakpoint-width(smartphone);
+			}
+		} @else {
+			@media all and (min-width: $value + 1) {
+				max-width: $value; // Дальше вьюпорты растут
+			}
+		}
+	}
+}
+
+// Кастомные медиазапросы для каждого устройства
+// Только мобильники
+@mixin mobile-only {
+	@media all and (max-width: get-breakpoint-width(mobile)) {
+		@content;
+	}
+}
+
+// Только смартфоны
+@mixin smartphone-only {
+	@media all and (min-width: get-breakpoint-width(mobile)) and (max-width: get-breakpoint-width(smartphone)) {
+		@content;
+	}
+}
+
+// Только таблетки
+@mixin tablet-only {
+	@media all and (min-width: get-breakpoint-width(smartphone)) and (max-width: get-breakpoint-width(tablet)) {
+		@content;
+	}
+}
+
+// Только лаптопы
+@mixin laptop-only {
+	@media all and (min-width: get-breakpoint-width(tablet)) and (max-width: get-breakpoint-width(laptop)) {
+		@content;
+	}
+}
+
+// Только ноутбуки
+@mixin notebook-only {
+	@media all and (min-width: get-breakpoint-width(laptop)) and (max-width: get-breakpoint-width(notebook)) {
+		@content;
+	}
+}
+
+// Только ПК
+@mixin desktop-only {
+	@media all and (min-width: get-breakpoint-width(notebook)) and (max-width: get-breakpoint-width(desktop)) {
+		@content;
+	}
+}
+
+// Начиная с мобильных - смартфоны и выше
+@mixin mobile-up {
+	@media all and (min-width: get-breakpoint-width(mobile)) {
+		@content;
+	}
+}
+
+// Начиная со смартфонов - таблетки и выше
+@mixin smartphone-up {
+	@media all and (min-width: get-breakpoint-width(smartphone)) {
+		@content;
+	}
+}
+
+// Начиная c таблеток - лаптопы и выше
+@mixin tablet-up {
+	@media all and (min-width: get-breakpoint-width(tablet)) {
+		@content;
+	}
+}
+
+// Начиная c лаптопов - ноуты и выше
+@mixin laptop-up {
+	@media all and (min-width: get-breakpoint-width(laptop)) {
+		@content;
+	}
+}
+
+// Начиная c ноутов - десктопы и выше
+@mixin notebook-up {
+	@media all and (min-width: get-breakpoint-width(notebook)) {
+		@content;
+	}
+}
+
+// Умные ТВ и другие большие устройства
+@mixin extra-large {
+	$extra-large: get-breakpoint-width(extra-large) + 1;
+
+	@media all and (min-width: $extra-large) {
+		@content;
+	}
+}
+
+// Кастомный медиазапрос - ограничитель максимальной границы
+@mixin custom-max($value) {
+	@media all and (max-width: $value) {
+		@content;
+	}
+}
+
+// Кастомный медиазапрос - ограничитель минимальной границы
+@mixin custom-min($value) {
+	@media all and (min-width: $value) {
+		@content;
+	}
+}
+
+// Кастомный медиазапрос - ограничитель произвольной границы
+@mixin custom-max($value-min, $value-max) {
+	@media all and (min-width: $value-min) and (max-width: $value-max) {
+		@content;
+	}
+}

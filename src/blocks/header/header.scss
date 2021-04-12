@@ -1,0 +1,9 @@
+.header {
+	width: 100%;
+	color: $header-color;
+	background-color: $header-bg-color;
+
+	@supports (display: grid) {
+		grid-area: header;
+	}
+}

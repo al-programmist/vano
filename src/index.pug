@@ -1,0 +1,43 @@
+extends pug/base
+
+prepend vars
+	//-
+
+append vars
+	- title = "Страница по умолчанию"
+	- meta.viewport = "width=device-width, initial-scale=1"
+	- meta.description = 'Описание страницы'
+	- meta.keywords = ['список', 'ключевых', 'слов']
+	- body.classList = ['index']
+	- link.icon = 'favicons/favicon.png'
+	- link.icon16x16 = 'favicons/favicon-16x16.png'
+	- link.icon24x24 = 'favicons/favicon-24x24.png'
+	- link.icon32x32 = 'favicons/favicon-32x32.png'
+	- link.icon48x48 = 'favicons/favicon-48x48.png'
+	- link.icon64x64 = 'favicons/favicon-64x64.png'
+	- link.icon96x96 = 'favicons/favicon-96x96.png'
+	- link.icon128x128 = 'favicons/favicon-128x128.png'
+	- link.icon256x256 = 'favicons/favicon-256x256.png'
+	- link.icon512x512 = 'favicons/favicon-512x512.png'
+	- link.appleTouchIcon = 'favicons/apple-touch-icon.png'
+	- link.appleTouchIcon57x57 = 'favicons/apple-touch-icon-57x57.png'
+	- link.appleTouchIcon76x76 = 'favicons/apple-touch-icon-76x76.png'
+	- link.appleTouchIcon120x120 = 'favicons/apple-touch-icon-120x120.png'
+	- link.appleTouchIcon152x152 = 'favicons/apple-touch-icon-152x152.png'
+	- link.appleTouchIcon167x167 = 'favicons/apple-touch-icon-167x167.png'
+	- link.appleTouchIcon180x180 = 'favicons/apple-touch-icon-180x180.png'
+	- link.manifest = 'favicons/manifest.webmanifest'
+
+block content
+	.l-wrapper.typo-grid-cells
+		header.header.l-section
+			nav.header-navigation.l-section__inner
+				|...содержимое header
+		main.main
+			section.l-section
+				.l-section__inner
+					| ... содержимое main
+		footer.footer.l-section
+			nav.footer-navigation.l-section__inner
+				|...содержимое footer
+

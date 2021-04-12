@@ -1,0 +1,7 @@
+// Получить ширину для брейкпойнта
+// get-breakpoint-width(mobile)
+@function get-breakpoint-width($breakpoint, $settings: null) {
+	$settings: $breakpoints !default;
+
+	@return map-get($settings, $breakpoint);
+}

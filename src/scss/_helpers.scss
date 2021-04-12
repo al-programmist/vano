@@ -1,0 +1,83 @@
+.is-hidden,
+[hidden] {
+	// stylelint-disable declaration-no-important
+	display: none !important;
+	overflow: hidden !important;
+	width: 0 !important;
+	height: 0 !important;
+	opacity: 0 !important;
+	// stylelint-enable declaration-no-important
+}
+
+.for-mobile {
+	@include desktop-only {
+		// stylelint-disable-next-line declaration-no-important
+		display: none !important;
+	}
+}
+
+.clearfix {
+	overflow: auto;
+
+	&::after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+.visually-hidden,
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+	position: absolute;
+	-webkit-clip-path: inset(100%);
+	clip-path: inset(100%);
+	overflow: hidden;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+	width: 1px;
+	height: 1px;
+	white-space: nowrap;
+	clip: rect(0 0 0 0);
+}
+
+.typo-grid-cells::after,
+.typo-grid-columns::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: $z-typo-grid;
+	display: block;
+	height: 100vh;
+	background-position-x: $typo-grid-offset-x;
+	background-color: $typo-grid-bg-color;
+	opacity: $typo-grid-opacity;
+}
+
+.typo-grid-cells::after {
+	width: 100vw;
+	background-image:
+		linear-gradient($typo-grid-main-color 2px, $transparent 0),
+		linear-gradient(90deg, $typo-grid-main-color 2px, $transparent 0),
+		linear-gradient($typo-grid-less-color 1px, $transparent 0),
+		linear-gradient(90deg, $typo-grid-less-color 1px, $transparent 0);
+	background-size:
+		100px 100px,
+		100px 100px,
+		10px 10px,
+		10px 10px;
+}
+
+.typo-grid-columns::after {
+	@include set-viewports;
+
+	background-image:
+		linear-gradient(90deg, $typo-grid-main-color 10px, $transparent 0),
+		linear-gradient(90deg, $typo-grid-main-color 10px, $transparent 0);
+	background-size: 134px 10px;
+}
