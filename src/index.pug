@@ -32,12 +32,28 @@ block content
 	.l-wrapper.typo-grid-cells
 		header.header.l-section
 			nav.header-navigation.l-section__inner
-				|...содержимое header
+				include blocks/header-navigation/header-navigation
 		main.main
 			section.l-section
+				nav.l-section__inner.breadcrumbs
+					include blocks/breadcrumbs/breadcrumbs
+			section.l-section.first-banner
 				.l-section__inner
-					| ... содержимое main
+					include blocks/first-banner/first-banner
+			section.l-section.products
+				.l-section__inner
+					include blocks/products/products
+			section.l-section.gallery
+				.l-section__inner
+					include blocks/gallery/gallery
+			section.l-section.step-feedback-quiz
+				.l-section__inner
+					include blocks/step-feedback-quiz/step-feedback-quiz
 		footer.footer.l-section
-			nav.footer-navigation.l-section__inner
-				|...содержимое footer
+			.l-section__inner
+				nav.footer-navigation
+					include blocks/footer-navigation/footer-navigation
+					include blocks/socials/socials
+					include blocks/copyright/copyright
+
 

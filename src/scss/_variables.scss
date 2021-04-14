@@ -25,7 +25,7 @@ $footer-bg-color: #000;
 $typo-grid-main-color: #fff;
 $typo-grid-less-color: hsla(0, 0%, 100%, 0.3);
 $typo-grid-bg-color: #58a;
-$typo-grid-opacity: 0.5;
+$typo-grid-opacity: 0.1;
 $typo-grid-offset-x: -10px;
 
 // FONTS
@@ -73,4 +73,10 @@ $z-popup: 800;
 $z-typo-grid: -1;
 
 // Базовая стилизация блоков: шрифты, фоны, цвета для всех блоков сайта, переменные --------
+$section-header-size: 3rem;
+$section-header-line-height: 1.5;
+$section-header-color: #000;
+$section-header-font-weight: $bold;
+$section-header-ff: $default-font;
+
 // ----------------------------------------------------------------------------

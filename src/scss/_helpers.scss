@@ -81,3 +81,11 @@ input[type="radio"].visually-hidden {
 		linear-gradient(90deg, $typo-grid-main-color 10px, $transparent 0);
 	background-size: 134px 10px;
 }
+
+.section__header {
+	font-family: $section-header-ff;
+	font-weight: $section-header-font-weight;
+	font-size: $section-header-size;
+	line-height: $section-header-line-height;
+	color: $section-header-color;
+}

@@ -410,7 +410,7 @@ a:visited {
 }
 
 a:not([href]):not([tabindex]),
-a:not([href]):not([tabindex]):hover,
+.has-hover a:not([href]):not([tabindex]):hover,
 a:not([href]):not([tabindex]):focus {
 	text-decoration: none;
 	color: inherit;
