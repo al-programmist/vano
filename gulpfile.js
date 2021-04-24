@@ -40,6 +40,9 @@ if (argv.ci) {
 	webpackConfig.mode = webpackConfig.mode || 'development';
 }
 
+let woff = require("gulp-ttf2woff");
+let woff2 = require("gulp-ttf2woff2");
+
 let $ = gulpLoadPlugins({
 	overridePattern: false,
 	pattern: [
@@ -117,6 +120,40 @@ gulp.task('copy', () => {
 		.pipe($.if(argv.cache, $.newer('build')))
 		.pipe($.if(argv.debug, $.debug()))
 		.pipe(gulp.dest('build'));
+});
+
+gulp.task('woff', function () {
+	return gulp.src([
+		'src/resources/**/*.ttf',
+		'!src/resources/**/.keep',
+	], {
+		base: 'src/resources',
+		dot: true,
+	})
+		.pipe($.plumber({
+			errorHandler,
+		}))
+		.pipe(woff())
+		.pipe($.if(argv.cache, $.newer('build')))
+		.pipe($.if(argv.debug, $.debug()))
+		.pipe(gulp.dest('src/resources'));
+});
+
+gulp.task('woff2', function () {
+	return gulp.src([
+		'src/resources/**/*.ttf',
+		'!src/resources/**/.keep',
+	], {
+		base: 'src/resources',
+		dot: true,
+	})
+		.pipe($.plumber({
+			errorHandler,
+		}))
+		.pipe(woff2())
+		.pipe($.if(argv.cache, $.newer('build')))
+		.pipe($.if(argv.debug, $.debug()))
+		.pipe(gulp.dest('src/resources'));
 });
 
 gulp.task('images', () => {
@@ -379,7 +416,10 @@ gulp.task('watch', () => {
 		'src/blocks/**/*.scss',
 	], gulp.series('scss'));
 
-	gulp.watch('src/js/**/*.js', gulp.series('js'));
+	gulp.watch([
+		'src/js/**/*.js',
+		'src/blocks/**/*.js',
+	], gulp.series('js'));
 });
 
 gulp.task('serve', () => {

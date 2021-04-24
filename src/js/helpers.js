@@ -104,6 +104,53 @@ vars.media = function (mediaQueryString, action) {
    });
 */
 
+vars.headerScrollTracking = () => {
+	const $window = $(window);
+	const $header = $('.header');
+	const headerHeight = Math.ceil(Number($header.outerHeight()));
+
+	window.onscroll = throttle(() => {
+		let currentScroll = $window.scrollTop();
+		let headerIsFixed = $header.hasClass('header--fixed');
+
+		if (currentScroll > headerHeight) {
+			$header.addClass('header--fixed');
+			return true;
+		}
+		$header.removeClass('header--fixed');
+	}, 200);
+};
+
+function throttle(func, ms) {
+	let isThrottled = false;
+	let savedArgs;
+	let savedThis;
+
+	function wrapper() {
+		if (isThrottled) { // (2)
+			savedArgs = arguments;
+			savedThis = this;
+
+			return;
+		}
+
+		func.apply(this, arguments); // (1)
+
+		isThrottled = true;
+
+		setTimeout(function() {
+			isThrottled = false; // (3)
+
+			if (savedArgs) {
+				wrapper.apply(savedThis, savedArgs);
+				savedArgs = savedThis = null;
+			}
+		}, ms);
+	}
+
+	return wrapper;
+}
+
 function hasHoverSupport() {
 	let hoverSupport;
 

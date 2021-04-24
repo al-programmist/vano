@@ -34,12 +34,12 @@ block content
 			nav.header-navigation.l-section__inner
 				include blocks/header-navigation/header-navigation
 		main.main
-			section.l-section
-				nav.l-section__inner.breadcrumbs
-					include blocks/breadcrumbs/breadcrumbs
-			section.l-section.first-banner
+			section(role="banner").l-section.first-banner
 				.l-section__inner
 					include blocks/first-banner/first-banner
+			section.l-section.breadcrumbs
+				nav.l-section__inner
+					include blocks/breadcrumbs/breadcrumbs
 			section.l-section.products
 				.l-section__inner
 					include blocks/products/products

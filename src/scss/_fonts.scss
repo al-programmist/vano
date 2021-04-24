@@ -1,1 +1,10 @@
 // stylelint-disable no-empty-source
+@import "mixins/helpers";
+
+@include font-face("../fonts/ComicNeue-Bold", "ComicNeue", 700, normal);
+@include font-face("../fonts/ComicNeue-BoldItalic", "ComicNeue", 700, italic);
+@include font-face("../fonts/ComicNeue-Regular", "ComicNeue", 400, normal);
+@include font-face("../fonts/ComicNeue-Italic", "ComicNeue", 400, italic);
+@include font-face("../fonts/ComicNeue-Light", "ComicNeue", 300, normal);
+@include font-face("../fonts/ComicNeue-LightItalic", "ComicNeue", 300, italic);
+@include font-face("../fonts/Chiller", "Chiller", 400, normal);

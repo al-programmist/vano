@@ -1,5 +1,6 @@
-// stylelint-disable scss/dollar-variable-empty-line-before
+@import "mixins/helpers";
 
+// stylelint-disable scss/dollar-variable-empty-line-before
 // COLORS
 $selection: #40bd07;
 $default-text-color: #000;
@@ -13,11 +14,8 @@ $kbd-color: #000;
 $pre-color: #000;
 $mark-bg: #000;
 
-$header-color: #fff;
-$header-bg-color: #000;
-
-$header-color: #fff;
-$header-bg-color: #000;
+$header-color: #000;
+$header-bg-color-fixed: #fff;
 
 $footer-color: #fff;
 $footer-bg-color: #000;
@@ -73,10 +71,25 @@ $z-popup: 800;
 $z-typo-grid: -1;
 
 // Базовая стилизация блоков: шрифты, фоны, цвета для всех блоков сайта, переменные --------
+$site-header-size: 5rem;
+$site-header-lh: 11.25rem;
+
 $section-header-size: 3rem;
 $section-header-line-height: 1.5;
 $section-header-color: #000;
 $section-header-font-weight: $bold;
-$section-header-ff: $default-font;
+$section-header-ff: "Chiller", $default-font;
+
+$header-navigation-ff: "ComicNeue", $default-font;
+$nav-link-hover-color-bg: #4f643a;
+$nav-link-hover-color: #fff;
+$nav-color: #000;
+
+$first-banner-bg: #8b9879;
+$first-banner-color: #000;
+
+$first-banner-greetings-font: 1.8rem;
+$first-banner-greetings-ff: "ComicNeue", $default-font;
+$first-banner-greetings-bg: rgba(255, 255, 255, 0.4);
 
 // ----------------------------------------------------------------------------

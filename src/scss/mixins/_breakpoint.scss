@@ -115,7 +115,7 @@
 }
 
 // Кастомный медиазапрос - ограничитель произвольной границы
-@mixin custom-max($value-min, $value-max) {
+@mixin custom($value-min, $value-max) {
 	@media all and (min-width: $value-min) and (max-width: $value-max) {
 		@content;
 	}
